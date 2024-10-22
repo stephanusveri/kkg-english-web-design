@@ -14,11 +14,47 @@ var swiperPopular = new Swiper(".popular__container", {
     centeredSlides: true,
     slidesPerView: 'auto',
     loop: true,
+
+    autoplay: {
+        delay: 4000,
+    },
     
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+});
+
+/*=============== SWIPER TESTIMONIAL ===============*/
+var swiperPopular = new Swiper(".testimonial__container", {
+    spaceBetween: 32,
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: true,
+
+    autoplay: {
+        delay: 4000,
+    },
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+
+});
+
+/*=============== SWIPER LOGOS ===============*/
+var swiperPopular = new Swiper(".logos__container", {
+    spaceBetween: 32,
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+
+    autoplay: {
+        delay: 1000,
+    },
+
 });
 
 /*=============== VALUE ACCORDION ===============*/
@@ -56,13 +92,13 @@ const toggleItem = (item) =>{
 const sections = document.querySelectorAll('section[id]')
     
 const scrollActive = () =>{
-  	const scrollY = window.pageYOffset
+    const scrollY = window.pageYOffset
 
 	sections.forEach(current =>{
 		const sectionHeight = current.offsetHeight,
-			  sectionTop = current.offsetTop - 58,
-			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+                sectionTop = current.offsetTop - 58,
+                sectionId = current.getAttribute('id'),
+                sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
 		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
 			sectionsClass.classList.add('active-link')
@@ -123,8 +159,8 @@ const sr = ScrollReveal({
     reset: true
 })
 
-sr.reveal('.home__title, .popular__container, .subscribe__container, .footer__container')
-sr.reveal('.home__description, .footer__info', {delay: 200})
+sr.reveal('.home__title, .popular__container, .subscribe__container, .testimonial__container')
+sr.reveal('.home__description', {delay: 200})
 sr.reveal('.home__search', {delay: 300})
 sr.reveal('.home__value', {delay: 400})
 sr.reveal('.home__images', {delay: 500, origin: 'bottom'})
